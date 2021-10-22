@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by anonymous (http://jsbin.com/faqusuvoka/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+ 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content= 
+	"width=device-width, initial-scale=1.0"> 
+	<title>digital clock</title> 
+	<link rel="stylesheet" href="clock2.css"> 
+<style id="jsbin-css">
+#clock { 
+font-size: 115px; 
+width: 700px; 
+margin: 150px; 
+text-align: center; 
+border: 5px solid black; 
+border-radius: 30px; 
+} 
+ 
+body{
+  color:orange;
+}
+</style>
+</head> 
+<body> 
+	<div id="clock">1:00:00</div> 
+
+	<script src="clock2.js"></script> 
+<script id="jsbin-javascript">
+setInterval(showTime, 1000); 
+function showTime() { 
+	let time = new Date(); 
+    let sec = time.getSeconds();
+    let min = time.getMinutes(); 
+	let hour = time.getHours(); 
+	am_pm = "AM"; 
+
+	if (hour > 12) { 
+		hour -= 12; 
+		am_pm = "PM"; 
+	} 
+	if (hour == 0) { 
+		hr = 12; 
+		am_pm = "AM"; 
+	} 
+
+	sec = sec < 10 ? "0" + sec : sec; 
+	min = min < 10 ? "0" + min : min;  
+    hour = hour < 10 ? "0" + hour : hour; 
+
+	let currentTime = hour + ":"
+			+ min + ":" + sec + am_pm; 
+
+	document.getElementById("clock") 
+			.innerHTML = currentTime; 
+} 
+showTime(); 
+
+</script>
+</body> 
+</html> 
